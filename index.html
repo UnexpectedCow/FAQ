@@ -1,0 +1,60 @@
+<style>
+.faq-container {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.faq-question {
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+}
+
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+}
+
+.faq-question.open::after {
+  content: '-';
+}
+
+.faq-answer {
+  display: none;
+  padding-top: 10px;
+  color: #333;
+}
+</style>
+
+<div class="faq-container">
+  <div class="faq-item">
+    <div class="faq-question">What is your return policy?</div>
+    <div class="faq-answer">We accept returns within 30 days with a receipt.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Do you offer international shipping?</div>
+    <div class="faq-answer">Yes, we ship worldwide. Delivery times vary by location.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">How can I track my order?</div>
+    <div class="faq-answer">You’ll receive a tracking link via email once your order ships.</div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    question.classList.toggle('open');
+    const answer = question.nextElementSibling;
+    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+  });
+});
+</script>
